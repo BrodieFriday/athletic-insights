@@ -9,19 +9,16 @@ export class StatsService {
 
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<any> {
-    var header = {
-      headers: new HttpHeaders()
-        .set('Authorization',  `bbbe9314-ec43-4cc6-a82a-f7d384163f09`)
-    }
-    return this.http.get('https://api.balldontlie.io/nfl/v1/teams', header);
+  private header = {
+    headers: new HttpHeaders()
+      .set('Authorization',  `bbbe9314-ec43-4cc6-a82a-f7d384163f09`)
+  }
+
+  getTeams(): Observable<any> {
+    return this.http.get('https://api.balldontlie.io/nfl/v1/teams', this.header);
   }
 
   getGames(): Observable<any> {
-    var header = {
-      headers: new HttpHeaders()
-        .set('Authorization',  `bbbe9314-ec43-4cc6-a82a-f7d384163f09`)
-    }
-    return this.http.get('https://api.balldontlie.io/nfl/v1/games', header);
+    return this.http.get('https://api.balldontlie.io/nfl/v1/games', this.header);
   }
 }

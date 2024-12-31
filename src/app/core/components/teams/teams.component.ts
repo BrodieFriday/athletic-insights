@@ -24,7 +24,7 @@ export class TeamsComponent implements OnInit {
   constructor(private statsService: StatsService) {}
 
   ngOnInit() {
-    this.statsService.getData().subscribe((data) => {
+    this.statsService.getTeams().subscribe((data) => {
       this.dataSource.data = data.data;
       this.dataSource.paginator = this.paginator;
     });
