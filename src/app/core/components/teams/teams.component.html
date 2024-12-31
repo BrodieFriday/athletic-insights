@@ -1,1 +1,35 @@
-<p>teams works!</p>
+<table mat-table [dataSource]="dataSource">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- Conference Column -->
+  <ng-container matColumnDef="conference">
+    <th mat-header-cell *matHeaderCellDef>Conference</th>
+    <td mat-cell *matCellDef="let element">{{ element.conference }}</td>
+  </ng-container>
+
+  <!-- Division Column -->
+  <ng-container matColumnDef="division">
+    <th mat-header-cell *matHeaderCellDef>Division</th>
+    <td mat-cell *matCellDef="let element">{{ element.division }}</td>
+  </ng-container>
+
+  <!-- Location Column -->
+  <ng-container matColumnDef="location">
+    <th mat-header-cell *matHeaderCellDef>Location</th>
+    <td mat-cell *matCellDef="let element">{{ element.location }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator
+  [length]="20"
+  [pageSizeOptions]="[10, 20, 32]"
+  showFirstLastButtons
+>
+</mat-paginator>
