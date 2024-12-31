@@ -1,0 +1,49 @@
+<table mat-table [dataSource]="dataSource">
+  <!-- Home Team Column -->
+  <ng-container matColumnDef="home_team">
+    <th mat-header-cell *matHeaderCellDef>Home Team</th>
+    <td mat-cell *matCellDef="let element">{{ element.home_team.full_name }}</td>
+  </ng-container>
+
+  <!-- Visitor Team Column -->
+  <ng-container matColumnDef="visitor_team">
+    <th mat-header-cell *matHeaderCellDef>Visitor Team</th>
+    <td mat-cell *matCellDef="let element">{{ element.visitor_team.full_name }}</td>
+  </ng-container>
+
+  <!-- Week Column -->
+  <ng-container matColumnDef="week">
+    <th mat-header-cell *matHeaderCellDef>Week</th>
+    <td mat-cell *matCellDef="let element">{{ element.week }}</td>
+  </ng-container>
+
+  <!-- Final Score Column -->
+  <ng-container matColumnDef="final_score">
+    <th mat-header-cell *matHeaderCellDef>Final Score</th>
+    <td mat-cell *matCellDef="let element">
+      Home{{ element.home_team_score }} - Visitor{{
+        element.visitor_team_score
+      }}
+    </td>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let element">
+      {{
+        element.date | date: 'MM-dd-yyyy'
+      }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator
+  [length]="20"
+  [pageSizeOptions]="[10, 20, 32]"
+  showFirstLastButtons
+>
+</mat-paginator>
