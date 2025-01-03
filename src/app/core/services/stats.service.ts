@@ -21,4 +21,8 @@ export class StatsService {
   getGames(): Observable<any> {
     return this.http.get('https://api.balldontlie.io/nfl/v1/games', this.header);
   }
+
+  getPlayers(): Observable<any> {
+    return this.http.get<any>('https://api.balldontlie.io/nfl/v1/players', this.header);
+  }
 }
