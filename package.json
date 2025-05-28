@@ -1,6 +1,7 @@
 {
   "name": "athletic-insights",
   "version": "0.0.0",
+  "homepage": "https://brodiefriday.github.io/athletic-insights",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
